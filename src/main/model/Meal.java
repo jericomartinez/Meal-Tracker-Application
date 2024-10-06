@@ -7,9 +7,9 @@ public class Meal {
 
     private String name;                      // name of meal
     private int calories;                     // number of calories
-    private ArrayList<String> macronutrients; // list of macronutrients
+    private ArrayList<Macronutrient> macronutrients; // list of macronutrients
 
-    // REQUIRES: name.length() > 0, calories > 0, macronutrients != null
+    // REQUIRES: name.length() > 0 && calories > 0 && macronutrients != null
     // EFFECTS:  creates a meal with this.name is set to name; this.calories 
     //           is set to calories; this.macronutrients is set to macronutrients.
     public Meal(String name, int calories, ArrayList<String> macronutrients) {
@@ -24,10 +24,6 @@ public class Meal {
         return 0;
     }
 
-    public ArrayList<String> getMacronutrients() {
-        return null;
-    }
-
     public void setName(String name) {
         // stub
     }
@@ -36,5 +32,16 @@ public class Meal {
         // stub
     }
 
-    // public void getMacronutrients
+    // MODIFIES: this
+    // EFFECTS:  adds macronutrient m to macronutrients
+    public void addMacronutrient(Macronutrient m) {
+        // stub
+    }
+
+    // REQUIRES: s =! ""
+    // MODIFIES: this
+    // EFFECTS:  removes macronutrient that has the same name as s
+    public void removeMacronutrient(String s) {
+        // stub
+    }
 }
