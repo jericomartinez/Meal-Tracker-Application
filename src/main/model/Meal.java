@@ -9,7 +9,7 @@ public class Meal {
     private int calories;                     // number of calories
     private ArrayList<Macronutrient> macronutrients; // list of macronutrients
 
-    // REQUIRES: name.length() > 0 && calories > 0 && macronutrients != null
+    // REQUIRES: name.length() > 0 && calories > 0
     // EFFECTS:  creates a meal with this.name is set to name; this.calories 
     //           is set to calories; this.macronutrients is set to macronutrients.
     public Meal(String name, int calories, ArrayList<String> macronutrients) {
