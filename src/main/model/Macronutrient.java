@@ -20,11 +20,11 @@ public class Macronutrient {
         return 0;
     }
 
-    public void setMacronutrient() {
+    public void setMacronutrient(String macronutrient) {
         // stub
     }
 
-    public void setAmount() {
+    public void setAmount(int amount) {
         // stub
     }
 }
