@@ -24,11 +24,19 @@ public class Meal {
         return 0;
     }
 
+    public ArrayList<Macronutrient> getMacronutrients() {
+        return null;
+    }
+
     public void setName(String name) {
         // stub
     }
 
     public void setCalories(int calories) {
+        // stub
+    }
+
+    public void setMacronutrients() {
         // stub
     }
 
