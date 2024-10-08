@@ -13,18 +13,18 @@ public class Macronutrient {
     }
 
     public String getMacronutrient() {
-        return "";
+        return macronutrient;
     }
 
     public int getAmount() {
-        return 0;
+        return amount;
     }
 
     public void setMacronutrient(String macronutrient) {
-        // stub
+        this.macronutrient = macronutrient;
     }
 
     public void setAmount(int amount) {
-        // stub
+        this.amount = amount;
     }
 }
