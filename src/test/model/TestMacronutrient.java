@@ -16,13 +16,13 @@ public class TestMacronutrient {
 
     @Test
     public void testMacronutrientConstructor() {
-        assertEquals("Protein", m.getMacronutrient());
+        assertEquals("Protein", m.getName());
         assertEquals(15, m.getAmount());
     }
 
     @Test
     public void testGetMacronutrient() {
-        assertEquals("protein", m.getMacronutrient());
+        assertEquals("Protein", m.getName());
     }
 
     @Test
@@ -32,8 +32,8 @@ public class TestMacronutrient {
 
     @Test
     public void testSetMacronutrient() {
-        m.setMacronutrient("Fat");
-        assertEquals("Fat", m.getMacronutrient());
+        m.setName("Fat");
+        assertEquals("Fat", m.getName());
     }
 
     @Test
