@@ -28,8 +28,12 @@ public class TestMeal {
 
         macronutrients1 = new ArrayList<>();
         macronutrients1.add(m1);
-        macronutrients1.add(m2);        
-        
+        macronutrients1.add(m2);  
+
+        macronutrients2 = new ArrayList<>();
+        macronutrients2.add(m1);
+        macronutrients2.add(m2);
+
         meal = new Meal("Egg Fried Rice", 800, macronutrients1);
     }
 
@@ -75,28 +79,29 @@ public class TestMeal {
 
     @Test
     public void testAddMacronutrient() {
-        macronutrients1.add(m3);
+        macronutrients2.add(m3);
+
         meal.addMacronutrient(m3);
-        assertEquals(macronutrients1, meal.getMacronutrients());
-        macronutrients1.add(m4);
+        assertEquals(macronutrients2, meal.getMacronutrients());
+        macronutrients2.add(m4);
         meal.addMacronutrient(m4);
-        assertEquals(macronutrients1, meal.getMacronutrients());
+        assertEquals(macronutrients2, meal.getMacronutrients());
         meal.addMacronutrient(m4);
-        assertEquals(macronutrients1, meal.getMacronutrients());
+        assertEquals(macronutrients2, meal.getMacronutrients());
         Macronutrient m5 = new Macronutrient("protein", 3);
         meal.addMacronutrient(m5);
-        assertEquals(macronutrients1, meal.getMacronutrients());
+        assertEquals(macronutrients2, meal.getMacronutrients());
     }
 
     @Test
     public void testRemoveMacronutrient() {
         meal.removeMacronutrient("protein");
-        macronutrients1.remove(0);
-        assertEquals(macronutrients1, meal.getMacronutrients());
+        macronutrients2.remove(0);
+        assertEquals(macronutrients2, meal.getMacronutrients());
         meal.removeMacronutrient("carbohydrate");
-        assertEquals(macronutrients1, meal.getMacronutrients());
+        assertEquals(macronutrients2, meal.getMacronutrients());
         meal.removeMacronutrient("fat");
-        macronutrients1.remove(0);
-        assertEquals(macronutrients1, meal.getMacronutrients());
+        macronutrients2.remove(0);
+        assertEquals(macronutrients2, meal.getMacronutrients());
     }
 }
