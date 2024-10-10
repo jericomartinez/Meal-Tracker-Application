@@ -7,28 +7,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
-import java.util.List;
-
 public class TestMealTracker {
 
     private Meal meal1;
     private Meal meal2;
-
 
     private ArrayList<Macronutrient> macronutrients1;
     private ArrayList<Macronutrient> macronutrients2;
 
     private ArrayList<Meal> meals1;
     private ArrayList<Meal> meals2;
-    private Macronutrient m1;
-    private Macronutrient m2;
-    private Macronutrient m3;
-    private Macronutrient m4;
 
     private MealTracker mealTracker1;
     private MealTracker mealTracker2;
 
-    
     @BeforeEach
     void runBefore() {
         macronutrients1 = new ArrayList<>();
@@ -46,6 +38,7 @@ public class TestMealTracker {
 
         meals1.add(meal1);
         meals1.add(meal2);
+        
         meals2.add(meal1);
 
         mealTracker1.addMeal(meal1);
