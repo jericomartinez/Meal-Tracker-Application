@@ -1,43 +1,43 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class TestMacronutrient {
 
-    private Macronutrient m;
+    Macronutrient m;
 
     @BeforeEach
-    public void runBefore() {
+    void runBefore() {
         m = new Macronutrient("Protein", 15);
     }
 
     @Test
-    public void testMacronutrientConstructor() {
+    void testMacronutrientConstructor() {
         assertEquals("Protein", m.getName());
         assertEquals(15, m.getAmount());
     }
 
     @Test
-    public void testGetMacronutrient() {
+    void testGetMacronutrient() {
         assertEquals("Protein", m.getName());
     }
 
     @Test
-    public void testGetAmount() {
+    void testGetAmount() {
         assertEquals(15, m.getAmount());
     }
 
     @Test
-    public void testSetMacronutrient() {
+    void testSetMacronutrient() {
         m.setName("Fat");
         assertEquals("Fat", m.getName());
     }
 
     @Test
-    public void testSetAmount() {
+    void testSetAmount() {
         m.setAmount(20);
         assertEquals(20, m.getAmount());
     }
