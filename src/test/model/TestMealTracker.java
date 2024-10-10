@@ -47,13 +47,15 @@ public class TestMealTracker {
 
     @Test
     void testMealTracker() {
-        assertEquals(null, mealTracker1.getMeals());
-        assertEquals(2000, mealTracker1.getCalorieGoal());
+        ArrayList<Meal> emptyList = new ArrayList<>();
+
+        assertEquals(emptyList, mealTracker2.getMeals());
+        assertEquals(1500, mealTracker2.getCalorieGoal());
     }
 
     @Test
     void testGetMeals() {
-        assertEquals(1, mealTracker1.getMeals());
+        assertEquals(meals1, mealTracker1.getMeals());
     }
     
     @Test
@@ -76,8 +78,8 @@ public class TestMealTracker {
     @Test
     void testAddMeal() {
         mealTracker2.addMeal(meal1);
-        assertEquals(meals2, mealTracker1.getMeals());
+        assertEquals(meals2, mealTracker2.getMeals());
         mealTracker2.addMeal(meal2);
-        assertEquals(meals1, mealTracker1.getMeals());
+        assertEquals(meals1, mealTracker2.getMeals());
     }
 }
