@@ -1,9 +1,9 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
@@ -38,24 +38,24 @@ public class TestMeal {
     }
 
     @Test
-    public void testMeal() {
+    void testMeal() {
         assertEquals("Egg Fried Rice", meal.getName());
         assertEquals(800, meal.getCalories());
         assertEquals(macronutrients1, meal.getMacronutrients());
     }
 
     @Test
-    public void testGetMealName() {
+    void testGetMealName() {
         assertEquals("Egg Fried Rice", meal.getName());
     }
 
     @Test
-    public void testGetCalories() {
+    void testGetCalories() {
         assertEquals(800, meal.getCalories());
     }
 
     @Test
-    public void testGetMacronutrients() {
+    void testGetMacronutrients() {
         assertEquals(macronutrients1, meal.getMacronutrients());
     }
 
@@ -66,7 +66,7 @@ public class TestMeal {
     }
 
     @Test
-    public void testSetMacronutrients() {
+    void testSetMacronutrients() {
         macronutrients2 = new ArrayList<>();
         macronutrients2.add(m3);
         macronutrients2.add(m4);
@@ -78,7 +78,13 @@ public class TestMeal {
     }
 
     @Test
-    public void testAddMacronutrient() {
+    void testSetCalories() {
+        meal.setCalories(300);
+        assertEquals(300, meal.getCalories());
+    }
+
+    @Test
+    void testAddMacronutrient() {
         macronutrients2.add(m3);
 
         meal.addMacronutrient(m3);
@@ -94,7 +100,7 @@ public class TestMeal {
     }
 
     @Test
-    public void testRemoveMacronutrient() {
+    void testRemoveMacronutrient() {
         meal.removeMacronutrient("protein");
         macronutrients2.remove(0);
         assertEquals(macronutrients2, meal.getMacronutrients());
