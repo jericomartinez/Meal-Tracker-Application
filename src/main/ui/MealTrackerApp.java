@@ -178,8 +178,5 @@ public class MealTrackerApp {
         }
         String listString = String.join(", ", mealsNames);
         System.out.println(listString);
-
-        // String listString = mealsNames.toString();
-        //  listString;
     }
 }
