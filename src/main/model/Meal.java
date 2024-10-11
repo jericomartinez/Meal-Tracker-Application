@@ -19,15 +19,15 @@ public class Meal {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getCalories() {
-        return calories;
+        return this.calories;
     }
 
     public ArrayList<Macronutrient> getMacronutrients() {
-        return macronutrients;
+        return this.macronutrients;
     }
 
     public void setName(String name) {
