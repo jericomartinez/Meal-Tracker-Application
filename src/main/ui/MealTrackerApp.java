@@ -168,7 +168,7 @@ public class MealTrackerApp {
         return macronutrients;
     }
 
-    private String doViewMeals() {
+    private void doViewMeals() {
         ArrayList<Meal> meals = new ArrayList<>();
         ArrayList<String> mealsNames = new ArrayList<>();
         meals = mealTracker.getMeals();
@@ -177,6 +177,9 @@ public class MealTrackerApp {
             mealsNames.add(next.getName());
         }
         String listString = String.join(", ", mealsNames);
-        return listString;
+        System.out.println(listString);
+
+        // String listString = mealsNames.toString();
+        //  listString;
     }
 }
