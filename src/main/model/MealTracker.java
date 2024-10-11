@@ -17,19 +17,19 @@ public class MealTracker {
     }
 
     public ArrayList<Meal> getMeals() {
-        return meals;
+        return this.meals;
     }
 
     public int getCalorieGoal() {
-        return calorieGoal;
+        return this.calorieGoal;
     }
 
     public void setCalorieGoal(int newCalorieGoal) {
-        calorieGoal = newCalorieGoal;
+        this.calorieGoal = newCalorieGoal;
     }
 
     // REQUIRES: name.length() > 0
-    // EFFECTS: returns meal with same name
+    // EFFECTS: returns meal with same name, otherwise returns null
     public Meal selectMeal(String name) {
         for (Meal next : meals) {
             if (next.getName() == name) {
@@ -38,7 +38,6 @@ public class MealTracker {
         }
         return null;
     }
-
 
     // MODIFIES: this
     // EFFECTS: adds meal to meals
