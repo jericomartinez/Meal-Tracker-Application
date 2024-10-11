@@ -73,6 +73,7 @@ public class TestMealTracker {
     void testSelectMeal() {
         assertEquals(meal1, mealTracker1.selectMeal("Egg Fried Rice"));
         assertEquals(meal2, mealTracker1.selectMeal("Chicken and Waffles"));
+        assertEquals(null, mealTracker1.selectMeal("Beef Noodles"));
     }
 
     @Test
@@ -81,5 +82,25 @@ public class TestMealTracker {
         assertEquals(meals2, mealTracker2.getMeals());
         mealTracker2.addMeal(meal2);
         assertEquals(meals1, mealTracker2.getMeals());
+    }
+
+    @Test
+    void testRemoveMeal() {
+        Meal meal3 = new Meal("Yogurt and Granola", 450, macronutrients1);
+        mealTracker1.addMeal(meal3);
+
+        mealTracker1.removeMeal("Yogurt and Granola");
+        assertEquals(meals1, mealTracker1.getMeals());
+
+        mealTracker1.removeMeal("Egg Fried Rice");
+        meals1.remove(0);
+        assertEquals(meals1, mealTracker1.getMeals());
+
+        mealTracker1.removeMeal("Chicken and Waffles");
+        meals1.remove(0);
+        assertEquals(meals1, mealTracker1.getMeals());
+
+        mealTracker1.removeMeal("Bubbles");
+        
     }
 }
