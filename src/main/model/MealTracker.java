@@ -44,4 +44,11 @@ public class MealTracker {
     public void addMeal(Meal meal) {
         this.meals.add(meal);
     }
+
+    // REQUIRES: name is the name of a meal present in this
+    // MODIFIES: this
+    // EFFECTS: deletes meal from meals
+    public void removeMeal(String name) {
+        // stub
+    }
 }
