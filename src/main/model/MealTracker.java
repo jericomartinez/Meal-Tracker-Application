@@ -78,7 +78,8 @@ public class MealTracker {
             } else {
                 totalProtein += next.selectMacronutrient("protein").getAmount();
             }
-        } return totalProtein;
+        } 
+        return totalProtein;
     }
 
     // EFFECTS: returns sum of fat consumed from all meals
@@ -90,7 +91,8 @@ public class MealTracker {
             } else {
                 totalFat += next.selectMacronutrient("fat").getAmount();
             }
-        } return totalFat;
+        } 
+        return totalFat;
     }
 
     // EFFECTS: returns sum of fibre consumed from all meals
@@ -102,7 +104,8 @@ public class MealTracker {
             } else {
                 totalFibre += next.selectMacronutrient("fibre").getAmount();
             }
-        } return totalFibre;
+        } 
+        return totalFibre;
     }
 
     // EFFECTS: returns sum of carbohydrates consumed from all meals
@@ -114,6 +117,7 @@ public class MealTracker {
             } else {
                 totalCarbohydrate += next.selectMacronutrient("carbohydrate").getAmount();
             }
-        } return totalCarbohydrate;
+        } 
+        return totalCarbohydrate;
     }
 }
