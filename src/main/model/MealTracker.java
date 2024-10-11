@@ -73,35 +73,47 @@ public class MealTracker {
     public int sumTotalProtein() {
         int totalProtein = 0;
         for (Meal next : meals) {
-            totalProtein += next.selectMacronutrient("protein").getAmount();
-        }
-        return totalProtein;
+            if (next.selectMacronutrient("protein") == null) {
+                totalProtein += 0;
+            } else {
+                totalProtein += next.selectMacronutrient("protein").getAmount();
+            }
+        } return totalProtein;
     }
 
     // EFFECTS: returns sum of fat consumed from all meals
     public int sumTotalFat() {
         int totalFat = 0;
         for (Meal next : meals) {
-            totalFat += next.selectMacronutrient("fat").getAmount();
-        }
-        return totalFat;
+            if (next.selectMacronutrient("fat") == null) {
+                totalFat += 0;
+            } else {
+                totalFat += next.selectMacronutrient("fat").getAmount();
+            }
+        } return totalFat;
     }
 
     // EFFECTS: returns sum of fibre consumed from all meals
     public int sumTotalFibre() {
         int totalFibre = 0;
         for (Meal next : meals) {
-            totalFibre += next.selectMacronutrient("fibre").getAmount();
-        }
-        return totalFibre;
+            if (next.selectMacronutrient("fibre") == null) {
+                totalFibre += 0;
+            } else {
+                totalFibre += next.selectMacronutrient("fibre").getAmount();
+            }
+        } return totalFibre;
     }
 
     // EFFECTS: returns sum of carbohydrates consumed from all meals
     public int sumTotalCarbohydrate() {
         int totalCarbohydrate = 0;
         for (Meal next : meals) {
-            totalCarbohydrate += next.selectMacronutrient("carbohydrate").getAmount();
-        }
-        return totalCarbohydrate;
+            if (next.selectMacronutrient("carbohydrate") == null) {
+                totalCarbohydrate += 0;
+            } else {
+                totalCarbohydrate += next.selectMacronutrient("carbohydrate").getAmount();
+            }
+        } return totalCarbohydrate;
     }
 }
