@@ -62,26 +62,46 @@ public class MealTracker {
 
     // EFFECTS: returns sum of calories consumed from all meals
     public int sumTotalCalories() {
-        return 0;
+        int totalCalories = 0;
+        for (Meal next : meals) {
+            totalCalories += next.getCalories();
+        }
+        return totalCalories;
     }
 
     // EFFECTS: returns sum of protein consumed from all meals
     public int sumTotalProtein() {
-        return 0;
+        int totalProtein = 0;
+        for (Meal next : meals) {
+            totalProtein += next.selectMacronutrient("protein").getAmount();
+        }
+        return totalProtein;
     }
 
     // EFFECTS: returns sum of fat consumed from all meals
     public int sumTotalFat() {
-        return 0;
+        int totalFat = 0;
+        for (Meal next : meals) {
+            totalFat += next.selectMacronutrient("fat").getAmount();
+        }
+        return totalFat;
     }
 
     // EFFECTS: returns sum of fibre consumed from all meals
     public int sumTotalFibre() {
-        return 0;
+        int totalFibre = 0;
+        for (Meal next : meals) {
+            totalFibre += next.selectMacronutrient("fibre").getAmount();
+        }
+        return totalFibre;
     }
 
     // EFFECTS: returns sum of carbohydrates consumed from all meals
     public int sumTotalCarbohydrate() {
-        return 0;
+        int totalCarbohydrate = 0;
+        for (Meal next : meals) {
+            totalCarbohydrate += next.selectMacronutrient("carbohydrate").getAmount();
+        }
+        return totalCarbohydrate;
     }
 }
