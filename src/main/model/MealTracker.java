@@ -49,6 +49,14 @@ public class MealTracker {
     // MODIFIES: this
     // EFFECTS: deletes meal from meals
     public void removeMeal(String name) {
-        // stub
+        Meal selectedMeal = null;
+
+        for (Meal next : meals) {
+            if (next.getName().equalsIgnoreCase(name)) {
+                selectedMeal = next;
+                break;
+            }
+        }
+        meals.remove(selectedMeal);    
     }
 }
