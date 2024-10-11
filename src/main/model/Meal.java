@@ -74,4 +74,10 @@ public class Meal {
         }
         macronutrients.removeAll(removeMacronutrients);
     }
+
+    // REQUIRES: s.length() > 0
+    // EFFECTS:  returns macronutrient with same name; otherwise returns null
+    public Macronutrient selectMacronutrient(String s) {
+        return null;
+    }
 }
