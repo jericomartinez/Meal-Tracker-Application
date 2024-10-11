@@ -110,4 +110,11 @@ public class TestMeal {
         macronutrients2.remove(0);
         assertEquals(macronutrients2, meal.getMacronutrients());
     }
+
+    @Test
+    void testSelectMacronutrient() {
+        assertEquals(m1, meal.selectMacronutrient("protein"));
+        assertEquals(m2, meal.selectMacronutrient("fat"));
+        assertEquals(null, meal.selectMacronutrient("carbohydrate"));        
+    }
 }
