@@ -7,39 +7,39 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestMacronutrient {
 
-    Macronutrient m;
+    Macronutrient testMacronutrient;
 
     @BeforeEach
     void runBefore() {
-        m = new Macronutrient("Protein", 15);
+        testMacronutrient = new Macronutrient("Protein", 15);
     }
 
     @Test
     void testMacronutrientConstructor() {
-        assertEquals("Protein", m.getName());
-        assertEquals(15, m.getAmount());
+        assertEquals("Protein", testMacronutrient.getName());
+        assertEquals(15, testMacronutrient.getAmount());
     }
 
     @Test
     void testGetMacronutrient() {
-        assertEquals("Protein", m.getName());
+        assertEquals("Protein", testMacronutrient.getName());
     }
 
     @Test
     void testGetAmount() {
-        assertEquals(15, m.getAmount());
+        assertEquals(15, testMacronutrient.getAmount());
     }
 
     @Test
     void testSetMacronutrient() {
-        m.setName("Fat");
-        assertEquals("Fat", m.getName());
+        testMacronutrient.setName("Fat");
+        assertEquals("Fat", testMacronutrient.getName());
     }
 
     @Test
     void testSetAmount() {
-        m.setAmount(20);
-        assertEquals(20, m.getAmount());
+        testMacronutrient.setAmount(20);
+        assertEquals(20, testMacronutrient.getAmount());
     }
 
 }
