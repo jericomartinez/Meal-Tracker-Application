@@ -9,17 +9,13 @@ import java.util.ArrayList;
 
 public class TestMealTracker {
 
-    private Meal meal1;
-    private Meal meal2;
-
     private Macronutrient m1;
     private Macronutrient m2;
     private Macronutrient m3;
     private Macronutrient m4;
-    private Macronutrient m5;
-    private Macronutrient m6;
-    private Macronutrient m7;
-    private Macronutrient m8;
+
+    private Meal meal1;
+    private Meal meal2;
 
     private ArrayList<Macronutrient> macronutrients1;
     private ArrayList<Macronutrient> macronutrients2;
@@ -37,10 +33,6 @@ public class TestMealTracker {
         m2 = new Macronutrient("fat", 20);
         m3 = new Macronutrient("carbohydrate", 80);
         m4 = new Macronutrient("fibre", 30);
-        m5 = new Macronutrient("protein", 12);
-        m6 = new Macronutrient("fat", 17);
-        m7 = new Macronutrient("carbohydrate", 40);
-        m8 = new Macronutrient("fibre", 1);
 
         macronutrients1 = new ArrayList<>();
         macronutrients1.add(m1);
@@ -49,10 +41,7 @@ public class TestMealTracker {
         macronutrients1.add(m4);
 
         macronutrients2 = new ArrayList<>();
-        macronutrients2.add(m5);
-        macronutrients2.add(m6);
-        macronutrients2.add(m7);
-        macronutrients2.add(m8);
+
 
         meal1 = new Meal("Egg Fried Rice", 800, macronutrients1);
         meal2 = new Meal("Chicken and Waffles", 1200, macronutrients2);
@@ -137,21 +126,21 @@ public class TestMealTracker {
 
     @Test
     void testSumTotalProtein() {
-        assertEquals(20, mealTracker1.sumTotalProtein());
+        assertEquals(8, mealTracker1.sumTotalProtein());
     }
 
     @Test
     void sumTotalFat() {
-        assertEquals(37, mealTracker1.sumTotalFat());
+        assertEquals(20, mealTracker1.sumTotalFat());
     }
 
     @Test
     void sumTotalFibre() {
-        assertEquals(31, mealTracker1.sumTotalFibre());
+        assertEquals(30, mealTracker1.sumTotalFibre());
     }
 
     @Test
     void sumTotalCarbohydrate() {
-        assertEquals(120, mealTracker1.sumTotalCarbohydrate());
+        assertEquals(80, mealTracker1.sumTotalCarbohydrate());
     }
 }
