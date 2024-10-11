@@ -78,6 +78,11 @@ public class Meal {
     // REQUIRES: s.length() > 0
     // EFFECTS:  returns macronutrient with same name; otherwise returns null
     public Macronutrient selectMacronutrient(String s) {
+        for (Macronutrient next : macronutrients) {
+            if (next.getName().equalsIgnoreCase(s)) {
+                return next;
+            }
+        }
         return null;
     }
 }
