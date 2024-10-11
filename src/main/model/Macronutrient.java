@@ -14,11 +14,11 @@ public class Macronutrient {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setName(String macronutrient) {
