@@ -59,4 +59,29 @@ public class MealTracker {
         }
         meals.remove(selectedMeal);    
     }
+
+    // EFFECTS: returns sum of calories consumed from all meals
+    public int sumTotalCalories() {
+        return 0;
+    }
+
+    // EFFECTS: returns sum of protein consumed from all meals
+    public int sumTotalProtein() {
+        return 0;
+    }
+
+    // EFFECTS: returns sum of fat consumed from all meals
+    public int sumTotalFat() {
+        return 0;
+    }
+
+    // EFFECTS: returns sum of fibre consumed from all meals
+    public int sumTotalFibre() {
+        return 0;
+    }
+
+    // EFFECTS: returns sum of carbohydrates consumed from all meals
+    public int sumTotalCarbohydrate() {
+        return 0;
+    }
 }
