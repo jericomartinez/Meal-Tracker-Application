@@ -13,4 +13,7 @@ A *User Stories* list:
 - I want to be able to view a summary of my calorie and macronutrient intake for the day.
 - I want to be able to delete a meal from my tracker.
 
+- I want to be able to save my meals (if I so choose) for when I reopen my application again
+- I want to be able load my saved meals from when I last saved them (if I so choose)
+
 An example of text with **bold** and *italic* fonts.  
