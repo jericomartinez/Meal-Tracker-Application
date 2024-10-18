@@ -130,17 +130,17 @@ public class TestMealTracker {
     }
 
     @Test
-    void sumTotalFat() {
+    void testSumTotalFat() {
         assertEquals(20, mealTracker1.sumTotalFat());
     }
 
     @Test
-    void sumTotalFibre() {
+    void testSumTotalFibre() {
         assertEquals(30, mealTracker1.sumTotalFibre());
     }
 
     @Test
-    void sumTotalCarbohydrate() {
+    void testSumTotalCarbohydrate() {
         assertEquals(80, mealTracker1.sumTotalCarbohydrate());
     }
 }
