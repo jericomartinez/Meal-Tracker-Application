@@ -32,7 +32,7 @@ public class MealTracker {
     // EFFECTS: returns meal with same name, otherwise returns null
     public Meal selectMeal(String name) {
         for (Meal next : meals) {
-            if (next.getName() == name) {
+            if (next.getName().equalsIgnoreCase(name)) {
                 return next;
             }
         }

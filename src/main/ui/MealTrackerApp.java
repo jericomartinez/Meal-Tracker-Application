@@ -106,7 +106,7 @@ public class MealTrackerApp {
 
     @SuppressWarnings("methodlength")
     private void doEditMeal() {
-        System.out.println("Enter name of meal:");
+        System.out.println("Enter name of meal you would like to edit:");
         String name = input.next();
         System.out.println("What do you want to change?");
         System.out.println("\t n -> name");
@@ -115,7 +115,7 @@ public class MealTrackerApp {
         String changingElement = input.next();
 
         if (changingElement.equalsIgnoreCase("n")) {
-            System.out.println("What do you want to rename your meal to?");
+            System.out.println("What would you like to rename your meal to?");
             String newName = input.next();
             mealTracker.selectMeal(name).setName(newName);
         } else if (changingElement.equalsIgnoreCase("c")) {
@@ -132,8 +132,6 @@ public class MealTrackerApp {
             Macronutrient selectedMacronutrient = mealTracker.selectMeal(name).selectMacronutrient(changeMacronutrient);
             selectedMacronutrient.setName(newMacronutrient);
             selectedMacronutrient.setAmount(newMacronutrientAmount);
-        } else {
-            //make them restart if invalid input
         }
     }
 
@@ -142,7 +140,7 @@ public class MealTrackerApp {
         int calorieGoal = input.nextInt();
         this.mealTracker.setCalorieGoal(calorieGoal);
     }
-
+ 
     private void doSummary() {
         System.out.println("Total calories consumed: " + mealTracker.sumTotalCalories());
         System.out.println("Total amount protein consumed (g): " + mealTracker.sumTotalProtein());
