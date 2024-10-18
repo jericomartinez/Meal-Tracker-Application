@@ -8,16 +8,22 @@ import model.Macronutrient;
 import model.Meal;
 import model.MealTracker;
 
+// referenced from the TellerApp
+// https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
+
 // meal tracker application
 public class MealTrackerApp {
 
     private Scanner input;
     private MealTracker mealTracker;
 
+    // EFFECTS: runs mealTracker
     public MealTrackerApp() {
         runMealTracker();
     }
 
+    // MODIFIES: this
+    // EFFECTS:  processes user inputs
     public void runMealTracker() {
         boolean keepRunning = true;
         String command = null;
@@ -42,6 +48,7 @@ public class MealTrackerApp {
         }
     }
 
+    // EFFECTS: checks if str is a valid string
     private static boolean isValidInput(String str) {
         if (str.length() != 1) {
             return false;
@@ -49,11 +56,14 @@ public class MealTrackerApp {
         char c = Character.toLowerCase(str.charAt(0));
         return c >= 'a' && c <= 'z';
     }
-
+    
+    // MODIFIES: this
+    // EFFECTS:  starts MealTracker app
     private void initialize(int c) {
         mealTracker = new MealTracker(c);
         input = new Scanner(System.in);
     }
+    
 
     // EFFECTS: displays menu of options for users
     private void displayMenu() {
@@ -67,7 +77,8 @@ public class MealTrackerApp {
         System.out.println("\t q -> quit");
     }
 
-    // MODIFIES: THIS
+    // REQUIRES: command == "a" || "d" || "e" || "c" || "s" || "v"
+    // MODIFIES: this
     // EFFECTS: processes the users command
     private void processCommand(String command) {
         if (command.equals("a")) {
@@ -87,6 +98,9 @@ public class MealTrackerApp {
         }
     }
 
+    // REQUIRES: name.length() > 0
+    // MODIFIES: this
+    // EFFECTS:  adds a meal to mealTracker
     private void doAddMeal() {
         System.out.println("Enter name of meal:");
         String name = input.next();
@@ -98,12 +112,18 @@ public class MealTrackerApp {
         mealTracker.addMeal(newMeal);
     }
 
+    // REQUIRES: this.mealTracker contains a meal with name
+    // MODIFIES: this
+    // EFFECTS:  deletes meal with name from mealTracker
     private void doDeleteMeal() {
         System.out.println("Enter name of meal:");
         String name = input.next();
         mealTracker.removeMeal(name);
     }
 
+    // REQUIRES: this.mealTracker contains a meal with name
+    // MODIFIES: this
+    // EFFECTS:  edits details of meal with name from mealTracker
     @SuppressWarnings("methodlength")
     private void doEditMeal() {
         System.out.println("Enter name of meal you would like to edit:");
@@ -135,20 +155,38 @@ public class MealTrackerApp {
         }
     }
 
+    // REQUIRES: calorieGoal > 0
+    // MODIFIES: this
+    // EFFECTS:  sets a calorie goal
     private void doSetCalorieGoal() {
         System.out.println("Input your calorie goal:");
         int calorieGoal = input.nextInt();
         this.mealTracker.setCalorieGoal(calorieGoal);
     }
- 
+
+    // EFFECTS: prints a summary of calories and macronutrients consumed, and calories remaining to reach calorie goal
     private void doSummary() {
+        int calorieGoal = mealTracker.getCalorieGoal();
+        int totalCalories = mealTracker.sumTotalCalories();
         System.out.println("Total calories consumed: " + mealTracker.sumTotalCalories());
         System.out.println("Total amount protein consumed (g): " + mealTracker.sumTotalProtein());
         System.out.println("Total amount fat consumed (g): " + mealTracker.sumTotalFat());
         System.out.println("Total amount fibre consumed (g): " + mealTracker.sumTotalFibre());
         System.out.println("Total amount carbohydrate consumed (g): " + mealTracker.sumTotalCarbohydrate());
+        if (mealTracker.getCalorieGoal() == 0) {
+            System.out.println("Calorie goal not set");
+        } else if (mealTracker.sumTotalCalories() > mealTracker.getCalorieGoal()) {
+            System.out.println("Calorie goal of " + calorieGoal + " calories has been met!");
+        } else {
+            System.out.println("Total calories remaining to reach calorie goal: " + (calorieGoal - totalCalories));
+        }
     }
 
+    // REQUIRES: size >= 0 && size < 5 && 
+    //           name == protein || fat || fibre || carbohydrate &&
+    //           amount > 0
+    // MODIFIES: this
+    // EFFECTS:  creates a list of macronutrients that correspond to the meal being created
     private ArrayList<Macronutrient> createMacronutrients() {
         ArrayList<Macronutrient> macronutrients = new ArrayList<>();
 
@@ -166,6 +204,7 @@ public class MealTrackerApp {
         return macronutrients;
     }
 
+    // EFFECTS: prints a string of a list of all meals consumed
     private void doViewMeals() {
         ArrayList<Meal> meals = new ArrayList<>();
         ArrayList<String> mealsNames = new ArrayList<>();
