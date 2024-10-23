@@ -42,7 +42,6 @@ public class TestMealTracker {
 
         macronutrients2 = new ArrayList<>();
 
-
         meal1 = new Meal("Egg Fried Rice", 800, macronutrients1);
         meal2 = new Meal("Chicken and Waffles", 1200, macronutrients2);
        
