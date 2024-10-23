@@ -1,0 +1,24 @@
+{
+    "calorieGoal": 2000,
+    "meals": [
+        {
+            "name": "banana",
+            "macronutrients": [],
+            "calories": 1000
+        },
+        {
+            "name": "apple",
+            "macronutrients": [
+                {
+                    "amount": 1,
+                    "name": "protein"
+                },
+                {
+                    "amount": 7,
+                    "name": "carbohydrate"
+                }
+            ],
+            "calories": 100
+        }
+    ]
+}

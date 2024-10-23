@@ -1,24 +1,31 @@
 package ui;
 
 import java.util.Scanner;
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import model.Macronutrient;
 import model.Meal;
 import model.MealTracker;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 // referenced from the TellerApp
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp.git
 
 // meal tracker application
 public class MealTrackerApp {
-
+    private static final String JSON_STORE = "./data/mealtracker.json";
     private Scanner input;
     private MealTracker mealTracker;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs mealTracker
     public MealTrackerApp() {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runMealTracker();
     }
 
@@ -72,12 +79,14 @@ public class MealTrackerApp {
         System.out.println("\t d -> delete a meal");
         System.out.println("\t e -> edit a meal");
         System.out.println("\t c -> set calorie goal");
-        System.out.println("\t s -> view summary");
-        System.out.println("\t v -> view meals");
+        System.out.println("\t p -> view summary");
+        System.out.println("\t m -> view meals");
+        System.out.println("\t s -> save meal tracker");
+        System.out.println("\t l -> load meal tracker");
         System.out.println("\t q -> quit");
     }
 
-    // REQUIRES: command == "a" || "d" || "e" || "c" || "s" || "v"
+    // REQUIRES: command == "a" || "d" || "e" || "c" || "p" || "v" || "s" || "l"
     // MODIFIES: this
     // EFFECTS: processes the users command
     private void processCommand(String command) {
@@ -89,11 +98,15 @@ public class MealTrackerApp {
             doEditMeal();
         } else if (command.equals("c")) {
             doSetCalorieGoal();
-        } else if (command.equals("s")) {
+        } else if (command.equals("p")) {
             doSummary();
-        } else if (command.equals("v")) {
+        } else if (command.equals("m")) {
             doViewMeals();
-        } else {
+        } else if (command.equals("s")) {
+            saveMealTracker();
+        } else if (command.equals("l")) {
+            loadMealTracker();
+        }else {
             System.out.println("Please try again");
         }
     }
@@ -102,7 +115,14 @@ public class MealTrackerApp {
     // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: saves the mealtracker to file
     private void saveMealTracker() {
-        // stub
+        try {
+            jsonWriter.open();
+            jsonWriter.write(mealTracker);
+            jsonWriter.close();
+            System.out.println("Saved meal tracker with calorie goal:" + mealTracker.getCalorieGoal() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 
     // Referenced from the JsonSerialization Demo
@@ -110,7 +130,12 @@ public class MealTrackerApp {
     // MODIFIES: this
     // EFFECTS:  loads mealtracker from file
     private void loadMealTracker() {
-        // stub
+        try {
+            mealTracker = jsonReader.read();
+            System.out.println("Loaded meal tracker with calorie goal:" + mealTracker.getCalorieGoal() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
     // REQUIRES: name.length() > 0
