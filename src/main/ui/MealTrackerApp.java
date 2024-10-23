@@ -98,6 +98,21 @@ public class MealTrackerApp {
         }
     }
 
+    // Referenced from the JsonSerialization Demo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+    // EFFECTS: saves the mealtracker to file
+    private void saveMealTracker() {
+        // stub
+    }
+
+    // Referenced from the JsonSerialization Demo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+    // MODIFIES: this
+    // EFFECTS:  loads mealtracker from file
+    private void loadMealTracker() {
+        // stub
+    }
+
     // REQUIRES: name.length() > 0
     // MODIFIES: this
     // EFFECTS:  adds a meal to mealTracker
