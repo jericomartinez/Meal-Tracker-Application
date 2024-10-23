@@ -2,8 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a meal having a name, number of calories, and a list of macronutrients.
-public class Meal {
+public class Meal implements Writable {
 
     private String name; // name of meal
     private int calories; // number of calories
@@ -84,5 +88,25 @@ public class Meal {
             }
         }
         return null;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", this.name);
+        json.put("calories", this.calories);
+        json.put("macronutrients", macronutrientsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns macronutrients in this Meal as a JSON array
+    private JSONArray macronutrientsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Macronutrient m : this.macronutrients) {
+            jsonArray.put(m.toJson());
+        }
+        
+        return jsonArray;
     }
 }

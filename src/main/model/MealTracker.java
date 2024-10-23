@@ -2,11 +2,15 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // represents a list of meals where you can view the meals you've eaten, select
 // a meal and edit the details of it, set a calorie goal, delete a meal, and view
 // a summary of your day displaying total calories and macronutrients consumed
-public class MealTracker {
-
+public class MealTracker implements Writable {
     int calorieGoal;
     ArrayList<Meal> meals;
 
@@ -119,5 +123,24 @@ public class MealTracker {
             }
         } 
         return totalCarbohydrate;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("calorieGoal", this.calorieGoal);
+        json.put("meals", mealsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns Meals in this MealTracker as a JSON array
+    private JSONArray mealsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Meal m : this.meals) {
+            jsonArray.put(m.toJson());
+        }
+
+        return jsonArray;
     }
 }

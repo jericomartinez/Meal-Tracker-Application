@@ -1,8 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // represents a macronutrient of either protein, fat, carbohydrate, or fibre with a String 
 // saying which macronutrient it is and an int as the amount in grams (g) present in the meal
-public class Macronutrient {
+public class Macronutrient implements Writable {
     private String name;
     private int amount;
 
@@ -27,5 +31,13 @@ public class Macronutrient {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", this.name);
+        json.put("amount", this.amount);
+        return json;
     }
 }
