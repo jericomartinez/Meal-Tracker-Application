@@ -1,0 +1,24 @@
+{
+    "calorieGoal": 2500,
+    "meals": [
+        {
+            "name": "water",
+            "macronutrients": [],
+            "calories": 1000
+        },
+        {
+            "name": "banana bread",
+            "macronutrients": [
+                {
+                    "amount": 5,
+                    "name": "protein"
+                },
+                {
+                    "amount": 15,
+                    "name": "carbohydrate"
+                }
+            ],
+            "calories": 150
+        }
+    ]
+}
