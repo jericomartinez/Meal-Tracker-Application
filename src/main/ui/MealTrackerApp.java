@@ -217,7 +217,7 @@ public class MealTrackerApp {
         System.out.println("Total amount carbohydrate consumed (g): " + mealTracker.sumTotalCarbohydrate());
         if (mealTracker.getCalorieGoal() == 0) {
             System.out.println("Calorie goal not set");
-        } else if (mealTracker.sumTotalCalories() > mealTracker.getCalorieGoal()) {
+        } else if (mealTracker.sumTotalCalories() >= mealTracker.getCalorieGoal()) {
             System.out.println("Calorie goal of " + calorieGoal + " calories has been met!");
         } else {
             System.out.println("Total calories remaining to reach calorie goal: " + (calorieGoal - totalCalories));
