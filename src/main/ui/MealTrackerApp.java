@@ -106,7 +106,7 @@ public class MealTrackerApp {
             saveMealTracker();
         } else if (command.equals("l")) {
             loadMealTracker();
-        }else {
+        } else {
             System.out.println("Please try again");
         }
     }
@@ -119,7 +119,8 @@ public class MealTrackerApp {
             jsonWriter.open();
             jsonWriter.write(mealTracker);
             jsonWriter.close();
-            System.out.println("Saved meal tracker with calorie goal:" + mealTracker.getCalorieGoal() + " to " + JSON_STORE);
+            String str = "Saved meal tracker with calorie goal:";
+            System.out.println(str + mealTracker.getCalorieGoal() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -132,7 +133,8 @@ public class MealTrackerApp {
     private void loadMealTracker() {
         try {
             mealTracker = jsonReader.read();
-            System.out.println("Loaded meal tracker with calorie goal:" + mealTracker.getCalorieGoal() + " from " + JSON_STORE);
+            String str = "Loaded meal tracker with calorie goal:";
+            System.out.println(str + mealTracker.getCalorieGoal() + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
