@@ -47,6 +47,9 @@ public class MealTrackerAppUI extends JFrame {
 
         addButtonPanel();
         addMenu();
+        loadImages();
+        addImagePanel();
+        setImage();
 
         centreOnScreen();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -66,6 +69,14 @@ public class MealTrackerAppUI extends JFrame {
         buttonPanel.add(new JButton(new ViewSummaryAction()));
 
         add(buttonPanel, BorderLayout.WEST);
+    }
+
+    // Referenced from C3-LectureLabStarter
+    // https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
+    // MODIFIES: this
+    // EFFECTS: loads images into variables
+    private void loadImages() {
+        // stub
     }
 
     // MODIFIES: this
@@ -314,5 +325,46 @@ public class MealTrackerAppUI extends JFrame {
         int width = Toolkit.getDefaultToolkit().getScreenSize().width;
         int height = Toolkit.getDefaultToolkit().getScreenSize().height;
         setLocation((width - getWidth()) / 2, (height - getHeight()) / 2);
+    }
+
+    // Referenced from C3-LectureLabStarter
+    // https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
+    // MODIFIES: this
+    // EFFECTS: helper to add imagePanel to window
+    private void addImagePanel() {
+        // stub
+    }
+
+    // Referenced from C3-LectureLabStarter
+    // https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
+    // MODIFIES: this
+    // EFFECTS: removes the image currently displayed on imagePanel
+    private void removeExistingImage() {
+        // stub
+    }
+
+    // Referenced from C3-LectureLabStarter
+    // https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
+    // MODIFIES: this
+    // EFFECTS: sets image to displayed on imagePanel to sadImage
+    private void setSadImage() {
+        // stub
+    }
+
+    // Referenced from C3-LectureLabStarter
+    // https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
+    // MODIFIES: this
+    // EFFECTS: sets image to displayed on imagePanel to happyImage
+    private void setHappyImage() {
+        // stub
+    }
+
+    // Referenced from C3-LectureLabStarter
+    // https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
+    // MODIFIES: this
+    // EFFECTS: displays happyImage if calorie goal is met, otherwise, displays
+    // sadImage
+    public void setImage() {
+        // stub
     }
 }
