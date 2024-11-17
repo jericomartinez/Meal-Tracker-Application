@@ -16,4 +16,11 @@ A *User Stories* list:
 - I want to be able to save my meals (if I so choose) for when I reopen my application again
 - I want to be able load my saved meals from when I last saved them (if I so choose)
 
-An example of text with **bold** and *italic* fonts.  
+# Instructions for End User
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by clicking on the "Add meal" button, then complete the prompts given. Doing this adds a meal to the meal tracker app.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by clicking on the "View meals" button. Doing so will create a new window within the application window which will display a list of all the meals in the meal tracker along with the amount of calories each meal has.
+- You can generate the third required action related to the user story "adding multiple Xs to a Y" by clicking on the "edit meal" button. Doing so will create a new window within the application window which will prompt you options to edit the details of one of the meals added.
+- You can locate my visual component by observing the right side of the window. When the calorie goal is not set or met, there will be a sad image. When the calorie goal is met, there will be a happy image.
+- You can save the state of my application by clicking on the "Save" button on the top menu, or by pressing "control + S" on your keyboard.
+- You can reload the state of my application by clicking on the "Load" button on the top menu, or by pressing "control + L" on your keyboard.
