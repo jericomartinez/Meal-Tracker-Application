@@ -1,6 +1,7 @@
 package ui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,11 @@ public class MealTrackerAppUI extends JFrame {
     private static final String JSON_STORE = "./data/mealtracker.json";
 
     private JPanel buttonPanel;
+    private JPanel imagePanel;
+    private JLabel imageAsLabel;
+
+    private ImageIcon happyImage;
+    private ImageIcon sadImage;
 
     private MealTracker mealTracker;
     private JsonWriter jsonWriter;
@@ -76,7 +82,11 @@ public class MealTrackerAppUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: loads images into variables
     private void loadImages() {
-        // stub
+        String sep = System.getProperty("file.separator");
+        happyImage = new ImageIcon(System.getProperty("user.dir") + sep
+                + "images" + sep + "happy.png");
+        sadImage = new ImageIcon(System.getProperty("user.dir") + sep
+                + "images" + sep + "sad.png");
     }
 
     // MODIFIES: this
@@ -180,6 +190,7 @@ public class MealTrackerAppUI extends JFrame {
             }
             Meal newMeal = new Meal(name, calories, macronutrients);
             mealTracker.addMeal(newMeal);
+            setImage();
         }
     }
 
@@ -201,6 +212,7 @@ public class MealTrackerAppUI extends JFrame {
                     "Enter name of meal you would like to delete",
                     JOptionPane.QUESTION_MESSAGE);
             mealTracker.removeMeal(name);
+            setImage();
         }
     }
 
@@ -238,6 +250,7 @@ public class MealTrackerAppUI extends JFrame {
             sp = new ScreenPrinter(MealTrackerAppUI.this);
             add((ScreenPrinter) sp);
             sp.printLog(mealTracker);
+            setImage();
         }
     }
 
@@ -258,6 +271,7 @@ public class MealTrackerAppUI extends JFrame {
             sp = new SummaryPrinter(MealTrackerAppUI.this);
             add((SummaryPrinter) sp);
             sp.printSummary(mealTracker);
+            setImage();
         }
 
     }
@@ -332,7 +346,9 @@ public class MealTrackerAppUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: helper to add imagePanel to window
     private void addImagePanel() {
-        // stub
+        imagePanel = new JPanel();
+        imagePanel.setPreferredSize(new Dimension(350, 400));
+        add(imagePanel, BorderLayout.EAST);
     }
 
     // Referenced from C3-LectureLabStarter
@@ -340,7 +356,9 @@ public class MealTrackerAppUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: removes the image currently displayed on imagePanel
     private void removeExistingImage() {
-        // stub
+        if (imageAsLabel != null) {
+            imagePanel.remove(imageAsLabel);
+        }
     }
 
     // Referenced from C3-LectureLabStarter
@@ -348,7 +366,9 @@ public class MealTrackerAppUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: sets image to displayed on imagePanel to sadImage
     private void setSadImage() {
-        // stub
+        removeExistingImage();
+        imageAsLabel = new JLabel(sadImage);
+        imagePanel.add(imageAsLabel);
     }
 
     // Referenced from C3-LectureLabStarter
@@ -356,7 +376,9 @@ public class MealTrackerAppUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: sets image to displayed on imagePanel to happyImage
     private void setHappyImage() {
-        // stub
+        removeExistingImage();
+        imageAsLabel = new JLabel(happyImage);
+        imagePanel.add(imageAsLabel);
     }
 
     // Referenced from C3-LectureLabStarter
@@ -365,6 +387,11 @@ public class MealTrackerAppUI extends JFrame {
     // EFFECTS: displays happyImage if calorie goal is met, otherwise, displays
     // sadImage
     public void setImage() {
-        // stub
+        if (mealTracker.sumTotalCalories() < mealTracker.getCalorieGoal()
+                || mealTracker.getCalorieGoal() == 0) {
+            setSadImage();
+        } else {
+            setHappyImage();
+        }
     }
 }
