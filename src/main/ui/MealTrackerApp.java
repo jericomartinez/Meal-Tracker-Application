@@ -30,7 +30,7 @@ public class MealTrackerApp {
     }
 
     // MODIFIES: this
-    // EFFECTS:  processes user inputs
+    // EFFECTS: processes user inputs
     public void runMealTracker() {
         boolean keepRunning = true;
         String command = null;
@@ -43,7 +43,7 @@ public class MealTrackerApp {
             while (!isValidInput(command)) {
                 displayMenu();
                 System.out.println("Invalid option, please try again");
-                command = input.next();                
+                command = input.next();
             }
             command = command.toLowerCase();
 
@@ -63,14 +63,13 @@ public class MealTrackerApp {
         char c = Character.toLowerCase(str.charAt(0));
         return c >= 'a' && c <= 'z';
     }
-    
+
     // MODIFIES: this
-    // EFFECTS:  starts MealTracker app
+    // EFFECTS: starts MealTracker app
     private void initialize(int c) {
         mealTracker = new MealTracker(c);
         input = new Scanner(System.in);
     }
-    
 
     // EFFECTS: displays menu of options for users
     private void displayMenu() {
@@ -129,7 +128,7 @@ public class MealTrackerApp {
     // Referenced from the JsonSerialization Demo
     // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // MODIFIES: this
-    // EFFECTS:  loads mealtracker from file
+    // EFFECTS: loads mealtracker from file
     private void loadMealTracker() {
         try {
             mealTracker = jsonReader.read();
@@ -142,7 +141,7 @@ public class MealTrackerApp {
 
     // REQUIRES: name.length() > 0
     // MODIFIES: this
-    // EFFECTS:  adds a meal to mealTracker
+    // EFFECTS: adds a meal to mealTracker
     private void doAddMeal() {
         System.out.println("Enter name of meal:");
         String name = input.next();
@@ -156,7 +155,7 @@ public class MealTrackerApp {
 
     // REQUIRES: this.mealTracker contains a meal with name
     // MODIFIES: this
-    // EFFECTS:  deletes meal with name from mealTracker
+    // EFFECTS: deletes meal with name from mealTracker
     private void doDeleteMeal() {
         System.out.println("Enter name of meal:");
         String name = input.next();
@@ -165,7 +164,7 @@ public class MealTrackerApp {
 
     // REQUIRES: this.mealTracker contains a meal with name
     // MODIFIES: this
-    // EFFECTS:  edits details of meal with name from mealTracker
+    // EFFECTS: edits details of meal with name from mealTracker
     @SuppressWarnings("methodlength")
     private void doEditMeal() {
         System.out.println("Enter name of meal you would like to edit:");
@@ -199,14 +198,15 @@ public class MealTrackerApp {
 
     // REQUIRES: calorieGoal > 0
     // MODIFIES: this
-    // EFFECTS:  sets a calorie goal
+    // EFFECTS: sets a calorie goal
     private void doSetCalorieGoal() {
         System.out.println("Input your calorie goal:");
         int calorieGoal = input.nextInt();
         this.mealTracker.setCalorieGoal(calorieGoal);
     }
 
-    // EFFECTS: prints a summary of calories and macronutrients consumed, and calories remaining to reach calorie goal
+    // EFFECTS: prints a summary of calories and macronutrients consumed, and
+    // calories remaining to reach calorie goal
     private void doSummary() {
         int calorieGoal = mealTracker.getCalorieGoal();
         int totalCalories = mealTracker.sumTotalCalories();
@@ -224,11 +224,12 @@ public class MealTrackerApp {
         }
     }
 
-    // REQUIRES: size >= 0 && size < 5 && 
-    //           name == protein || fat || fibre || carbohydrate &&
-    //           amount > 0
+    // REQUIRES: size >= 0 && size < 5 &&
+    // name == protein || fat || fibre || carbohydrate &&
+    // amount > 0
     // MODIFIES: this
-    // EFFECTS:  creates a list of macronutrients that correspond to the meal being created
+    // EFFECTS: creates a list of macronutrients that correspond to the meal being
+    // created
     private ArrayList<Macronutrient> createMacronutrients() {
         ArrayList<Macronutrient> macronutrients = new ArrayList<>();
 
