@@ -24,3 +24,9 @@ A *User Stories* list:
 - You can locate my visual component by observing the right side of the window. When the calorie goal is not set or met, there will be a sad image. When the calorie goal is met, there will be a happy image.
 - You can save the state of my application by clicking on the "Save" button on the top menu, or by pressing "control + S" on your keyboard.
 - You can reload the state of my application by clicking on the "Load" button on the top menu, or by pressing "control + L" on your keyboard.
+
+# Phase 4: Task 2
+Added new meal: soup
+Set new calories of soup: 60
+Set new calorie goal: 250
+Removed soup from meal tracker

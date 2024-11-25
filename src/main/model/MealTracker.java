@@ -30,6 +30,7 @@ public class MealTracker implements Writable {
 
     public void setCalorieGoal(int newCalorieGoal) {
         this.calorieGoal = newCalorieGoal;
+        EventLog.getInstance().logEvent(new Event("Set new calorie goal: " + newCalorieGoal));
     }
 
     // REQUIRES: name.length() > 0
@@ -47,6 +48,7 @@ public class MealTracker implements Writable {
     // EFFECTS: adds meal to meals
     public void addMeal(Meal meal) {
         this.meals.add(meal);
+        EventLog.getInstance().logEvent(new Event("Added new meal: " + meal.getName()));
     }
 
     // REQUIRES: name is the name of a meal present in this
@@ -61,7 +63,8 @@ public class MealTracker implements Writable {
                 break;
             }
         }
-        meals.remove(selectedMeal);    
+        meals.remove(selectedMeal);  
+        EventLog.getInstance().logEvent(new Event("Removed " + name + " from meal tracker"));  
     }
 
     // EFFECTS: returns sum of calories consumed from all meals

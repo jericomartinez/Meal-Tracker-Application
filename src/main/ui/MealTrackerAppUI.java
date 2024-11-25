@@ -5,12 +5,16 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
+import model.Event;
+import model.EventLog;
 import model.Macronutrient;
 import model.Meal;
 import model.MealTracker;
@@ -58,7 +62,16 @@ public class MealTrackerAppUI extends JFrame {
         setImage();
 
         centreOnScreen();
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.getDescription());
+                }
+                System.exit(0);
+            }
+        });
         setVisible(true);
     }
 
@@ -386,7 +399,7 @@ public class MealTrackerAppUI extends JFrame {
     // MODIFIES: this
     // EFFECTS: displays happyImage if calorie goal is met, otherwise, displays
     // sadImage
-    public void setImage() {
+    private void setImage() {
         if (mealTracker.sumTotalCalories() < mealTracker.getCalorieGoal()
                 || mealTracker.getCalorieGoal() == 0) {
             setSadImage();

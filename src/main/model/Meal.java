@@ -35,15 +35,18 @@ public class Meal implements Writable {
     }
 
     public void setName(String name) {
+        EventLog.getInstance().logEvent(new Event("Set new name of meal from " + getName() + " to: " + name));
         this.name = name;
     }
 
     public void setCalories(int calories) {
         this.calories = calories;
+        EventLog.getInstance().logEvent(new Event("Set new calories of " + getName() + ": " + calories));
     }
 
     public void setMacronutrients(ArrayList<Macronutrient> macronutrients) {
         this.macronutrients = macronutrients;
+        EventLog.getInstance().logEvent(new Event("Set new macronutrients"));
     }
 
     // REQUIRES: macronutrients.length() <= 4 && max one of each
@@ -54,6 +57,7 @@ public class Meal implements Writable {
     // do not add m to macronutrients
     public void addMacronutrient(Macronutrient m) {
         ArrayList<String> namesOfMacronutrients = new ArrayList<>();
+        String macronutrientName = m.getName();
 
         for (Macronutrient next : macronutrients) {
             namesOfMacronutrients.add(next.getName());
@@ -61,6 +65,7 @@ public class Meal implements Writable {
         if (!namesOfMacronutrients.contains(m.getName())) {
             macronutrients.add(m);
         }
+        EventLog.getInstance().logEvent(new Event("Added new macronutrient " + macronutrientName + " to " + getName()));
     }
 
     // REQUIRES: (s == "protein" || s == "fat" || s == "carbohydtarate" || s ==
@@ -77,6 +82,7 @@ public class Meal implements Writable {
             }
         }
         macronutrients.removeAll(removeMacronutrients);
+        EventLog.getInstance().logEvent(new Event("Removed macronutrient " + s + " from " + getName()));
     }
 
     // REQUIRES: s.length() > 0
