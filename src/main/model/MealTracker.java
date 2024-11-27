@@ -21,6 +21,7 @@ public class MealTracker implements Writable {
     }
 
     public ArrayList<Meal> getMeals() {
+        EventLog.getInstance().logEvent(new Event("Viewed meals"));
         return this.meals;
     }
 
