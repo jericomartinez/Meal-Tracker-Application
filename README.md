@@ -26,10 +26,12 @@ A *User Stories* list:
 - You can reload the state of my application by clicking on the "Load" button on the top menu, or by pressing "control + L" on your keyboard.
 
 # Phase 4: Task 2
-Added new meal: soup
-Set new calories of soup: 60
-Set new calorie goal: 250
-Removed soup from meal tracker
+**Sample eventlog output:**
+
+Added new meal: soup <br>
+Set new calories of soup: 60 <br>
+Set new calorie goal: 250 <br>
+Removed soup from meal tracker <br>
 
 # Phase 4: Task 3
 If I had more time to work on my project, I would have MealTrackerAppUI extend MealTrackerApp. Doing so would have allowed me to reuse code that they both shared. Another change I would make would be to extract some of the code in the doEditMeal method in the MealTrackerApp class to create a new method as a helper to improve the readability of my code.
